@@ -1,0 +1,767 @@
+{
+  "meta": {
+    "model": "gpt-5.6-luna",
+    "index": "structure / aitunnel:text-embedding-3-small",
+    "k": 4,
+    "date": "2026-09-29 20:48"
+  },
+  "summary": {
+    "plain": {
+      "avg_coverage": 0.31,
+      "project_coverage": 0.14,
+      "general_coverage": 1.0,
+      "statuses": {
+        "верно": 2,
+        "частично": 2,
+        "честно не знает": 6,
+        "неверно": 0
+      },
+      "prompt_tokens": 755,
+      "completion_tokens": 1317
+    },
+    "rag": {
+      "avg_coverage": 0.82,
+      "project_coverage": 0.83,
+      "general_coverage": 0.75,
+      "statuses": {
+        "верно": 7,
+        "частично": 1,
+        "честно не знает": 2,
+        "неверно": 0
+      },
+      "prompt_tokens": 11577,
+      "completion_tokens": 1136,
+      "retrieved_ok": "8/8",
+      "cited_ok": "8/8"
+    }
+  },
+  "rows": [
+    {
+      "id": 1,
+      "type": "project",
+      "q": "Какую экономию входных токенов дало сжатие истории в проекте дня 9 на реальном API и какие были цифры до и после?",
+      "expected": "Экономия 56.7% input-токенов: 80118 без сжатия против 34694 со сжатием (сценарий из 20 реплик, gpt-4o-mini).",
+      "sources": [
+        "day9-context-compression/RESULTS.md",
+        "day9-context-compression/README.md"
+      ],
+      "plain": {
+        "mode": "plain",
+        "question": "Какую экономию входных токенов дало сжатие истории в проекте дня 9 на реальном API и какие были цифры до и после?",
+        "answer": "Не знаю — у меня нет доступа к материалам проекта «день 9» и его логам реального API, поэтому не могу достоверно назвать экономию и цифры до/после.",
+        "usage": {
+          "prompt_tokens": 87,
+          "completion_tokens": 82
+        },
+        "coverage": 0.0,
+        "missing": [
+          "56.7",
+          "80118",
+          "34694"
+        ],
+        "status": "честно не знает"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Какую экономию входных токенов дало сжатие истории в проекте дня 9 на реальном API и какие были цифры до и после?",
+        "answer": "Сжатие истории дало экономию входных токенов **56,7%**, или **45 424 токена**, на 20-репличном сценарии. [2]\n\nДо сжатия: **80 118 input-токенов**. [2]  \nПосле сжатия: **34 694 input-токена**. [2]",
+        "usage": {
+          "prompt_tokens": 850,
+          "completion_tokens": 82
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day9-context-compression/RESULTS.md#structure-004",
+            "source": "day9-context-compression/RESULTS.md",
+            "section": "День 9. Результаты сравнения: сжатие истории > 4. Итоговый вывод",
+            "score": 0.568
+          },
+          {
+            "n": 2,
+            "chunk_id": "day9-context-compression/RESULTS.md#structure-002",
+            "source": "day9-context-compression/RESULTS.md",
+            "section": "День 9. Результаты сравнения: сжатие истории > 2. Расход токенов (реальные `usage.prompt_tokens` из API)",
+            "score": 0.565
+          },
+          {
+            "n": 3,
+            "chunk_id": "day9-context-compression/RESULTS.md#structure-000",
+            "source": "day9-context-compression/RESULTS.md",
+            "section": "День 9. Результаты сравнения: сжатие истории",
+            "score": 0.531
+          },
+          {
+            "n": 4,
+            "chunk_id": "day10-context-strategies/RESULTS.md#structure-001",
+            "source": "day10-context-strategies/RESULTS.md",
+            "section": "День 10. Результаты сравнения: 3 стратегии управления контекстом > 2. Расход токенов (реальные `usage.*` из API, из вывода `compare.py`)",
+            "score": 0.517
+          }
+        ],
+        "cited": [
+          "day9-context-compression/RESULTS.md"
+        ],
+        "prompt_chars": 2311,
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно",
+        "retrieved_ok": true,
+        "cited_ok": true
+      }
+    },
+    {
+      "id": 2,
+      "type": "project",
+      "q": "Какие три стратегии управления контекстом реализованы в проекте дня 10?",
+      "expected": "Sliding Window (последние N сообщений), Sticky Facts / Key-Value Memory (блок фактов + окно), Branching (ветки диалога от checkpoint).",
+      "sources": [
+        "day10-context-strategies/"
+      ],
+      "plain": {
+        "mode": "plain",
+        "question": "Какие три стратегии управления контекстом реализованы в проекте дня 10?",
+        "answer": "Не знаю, о каком именно проекте «дня 10» речь. Пришлите ссылку, название курса или фрагмент проекта — тогда перечислю три стратегии.",
+        "usage": {
+          "prompt_tokens": 70,
+          "completion_tokens": 81
+        },
+        "coverage": 0.0,
+        "missing": [
+          "sliding window",
+          "facts",
+          "branching"
+        ],
+        "status": "честно не знает"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Какие три стратегии управления контекстом реализованы в проекте дня 10?",
+        "answer": "В проекте реализованы три стратегии:\n\n1. **SlidingWindowStrategy** — хранит только последние **N сообщений**, остальные отбрасывает. [2]  \n2. **FactsStrategy** — хранит отдельный блок **«facts»** с важными данными диалога и последними **N сообщениями**. [2]  \n3. **BranchingStrategy** — позволяет создавать от checkpoint несколько независимых веток и переключаться между ними. [2]",
+        "usage": {
+          "prompt_tokens": 1395,
+          "completion_tokens": 135
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day10-context-strategies/compare.py#structure-000",
+            "source": "day10-context-strategies/compare.py",
+            "section": "шапка модуля: docstring и импорты + константа USE_REAL_API + константа MODEL + константа FACTS_MODEL + константа WINDOW_SIZE + константа FACTS_WINDOW_SIZE + константа SYSTEM_PROMPT",
+            "score": 0.6
+          },
+          {
+            "n": 2,
+            "chunk_id": "day10-context-strategies/context_strategies.py#structure-000",
+            "source": "day10-context-strategies/context_strategies.py",
+            "section": "шапка модуля: docstring и импорты",
+            "score": 0.581
+          },
+          {
+            "n": 3,
+            "chunk_id": "day10-context-strategies/README.md#structure-000",
+            "source": "day10-context-strategies/README.md",
+            "section": "День 10. Управление контекстом: 3 стратегии (без summary) + День 10. Управление контекстом: 3 стратегии (без summary) > Быстрый старт (проще всего)",
+            "score": 0.575
+          },
+          {
+            "n": 4,
+            "chunk_id": "day10-context-strategies/RESULTS.md#structure-000",
+            "source": "day10-context-strategies/RESULTS.md",
+            "section": "День 10. Результаты сравнения: 3 стратегии управления контекстом + День 10. Результаты сравнения: 3 стратегии управления контекстом > 1. Настройки прогона",
+            "score": 0.571
+          }
+        ],
+        "cited": [
+          "day10-context-strategies/context_strategies.py"
+        ],
+        "prompt_chars": 4657,
+        "coverage": 0.67,
+        "missing": [
+          "sliding window"
+        ],
+        "status": "частично",
+        "retrieved_ok": true,
+        "cited_ok": true
+      }
+    },
+    {
+      "id": 3,
+      "type": "project",
+      "q": "На какие слои разделена память агента в проекте дня 11 и где хранится долговременная память?",
+      "expected": "Три слоя: краткосрочная (текущий диалог), рабочая (данные задачи), долговременная (профиль, решения, знания); долговременная хранится в файле memory_store.json.",
+      "sources": [
+        "day11-memory-layers/"
+      ],
+      "plain": {
+        "mode": "plain",
+        "question": "На какие слои разделена память агента в проекте дня 11 и где хранится долговременная память?",
+        "answer": "Не знаю, о каком именно проекте «дня 11» идёт речь. Пришлите ссылку или фрагмент кода/описания — тогда точно скажу, на какие слои разделена память и где хранится долговременная.",
+        "usage": {
+          "prompt_tokens": 77,
+          "completion_tokens": 126
+        },
+        "coverage": 0.25,
+        "missing": [
+          "краткосроч",
+          "рабоч",
+          "memory_store.json"
+        ],
+        "status": "честно не знает"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "На какие слои разделена память агента в проекте дня 11 и где хранится долговременная память?",
+        "answer": "Память агента разделена на три слоя: краткосрочную (`ShortTermMemory`), рабочую (`WorkingMemory`) и долговременную (`LongTermMemory`). [1]\n\nДолговременная память хранится в файле `memory_store.json` и переживает перезапуск. [2]",
+        "usage": {
+          "prompt_tokens": 1569,
+          "completion_tokens": 100
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day11-memory-layers/memory_layers.py#structure-000",
+            "source": "day11-memory-layers/memory_layers.py",
+            "section": "шапка модуля: docstring и импорты (часть 1/2)",
+            "score": 0.627
+          },
+          {
+            "n": 2,
+            "chunk_id": "day11-memory-layers/README.md#structure-001",
+            "source": "day11-memory-layers/README.md",
+            "section": "День 11. Модель памяти агента (memory layers) > Описание модели памяти",
+            "score": 0.57
+          },
+          {
+            "n": 3,
+            "chunk_id": "day11-memory-layers/README.md#structure-000",
+            "source": "day11-memory-layers/README.md",
+            "section": "День 11. Модель памяти агента (memory layers) + День 11. Модель памяти агента (memory layers) > Быстрый старт",
+            "score": 0.534
+          },
+          {
+            "n": 4,
+            "chunk_id": "day11-memory-layers/chat.py#structure-000",
+            "source": "day11-memory-layers/chat.py",
+            "section": "шапка модуля: docstring и импорты (часть 1/2)",
+            "score": 0.53
+          }
+        ],
+        "cited": [
+          "day11-memory-layers/README.md",
+          "day11-memory-layers/memory_layers.py"
+        ],
+        "prompt_chars": 4859,
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно",
+        "retrieved_ok": true,
+        "cited_ok": true
+      }
+    },
+    {
+      "id": 4,
+      "type": "project",
+      "q": "Почему в проекте дня 16 подключение к mcp.deepwiki.com/sse завершилось ошибкой и какой адрес нужно использовать вместо него?",
+      "expected": "Сервер отвечает 410 Gone — старый SSE-адрес DeepWiki отключён; нужно использовать https://mcp.deepwiki.com/mcp (Streamable HTTP).",
+      "sources": [
+        "day16-mcp-connect/README.md"
+      ],
+      "plain": {
+        "mode": "plain",
+        "question": "Почему в проекте дня 16 подключение к mcp.deepwiki.com/sse завершилось ошибкой и какой адрес нужно использовать вместо него?",
+        "answer": "Подключение завершилось ошибкой, потому что endpoint `/sse` у DeepWiki устарел и больше не поддерживается в прежнем формате SSE.\n\nИспользуйте новый endpoint:\n\n```text\nhttps://mcp.deepwiki.com/mcp\n```\n\nОн работает через современный протокол Streamable HTTP.",
+        "usage": {
+          "prompt_tokens": 82,
+          "completion_tokens": 192
+        },
+        "coverage": 0.5,
+        "missing": [
+          "410"
+        ],
+        "status": "частично"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Почему в проекте дня 16 подключение к mcp.deepwiki.com/sse завершилось ошибкой и какой адрес нужно использовать вместо него?",
+        "answer": "Подключение к `https://mcp.deepwiki.com/sse` завершилось ошибкой, потому что DeepWiki отключил этот старый адрес: он отвечает `410 Gone`. [4]\n\nВместо него нужно использовать `https://mcp.deepwiki.com/mcp` с транспортом Streamable HTTP. [1][4]",
+        "usage": {
+          "prompt_tokens": 1200,
+          "completion_tokens": 73
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day16-mcp-connect/list_tools.py#structure-000",
+            "source": "day16-mcp-connect/list_tools.py",
+            "section": "шапка модуля: docstring и импорты + константа DEFAULT_URL + константа LOCAL_SERVER",
+            "score": 0.535
+          },
+          {
+            "n": 2,
+            "chunk_id": "day16-mcp-connect/README.md#structure-004",
+            "source": "day16-mcp-connect/README.md",
+            "section": "День 16. Подключение MCP > Что должно получиться",
+            "score": 0.517
+          },
+          {
+            "n": 3,
+            "chunk_id": "day16-mcp-connect/README.md#structure-000",
+            "source": "day16-mcp-connect/README.md",
+            "section": "День 16. Подключение MCP",
+            "score": 0.499
+          },
+          {
+            "n": 4,
+            "chunk_id": "day16-mcp-connect/README.md#structure-001",
+            "source": "day16-mcp-connect/README.md",
+            "section": "День 16. Подключение MCP > Файлы",
+            "score": 0.486
+          }
+        ],
+        "cited": [
+          "day16-mcp-connect/README.md",
+          "day16-mcp-connect/list_tools.py"
+        ],
+        "prompt_chars": 3900,
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно",
+        "retrieved_ok": true,
+        "cited_ok": true
+      }
+    },
+    {
+      "id": 5,
+      "type": "project",
+      "q": "Какие инструменты зарегистрированы в MCP-сервере CRM в проекте дня 17?",
+      "expected": "Три инструмента: search_clients, get_client_orders, create_order.",
+      "sources": [
+        "day17-mcp-tool/"
+      ],
+      "plain": {
+        "mode": "plain",
+        "question": "Какие инструменты зарегистрированы в MCP-сервере CRM в проекте дня 17?",
+        "answer": "Не знаю — у меня нет доступа к проекту «день 17» и его MCP-серверу CRM. Пришлите конфигурацию или вывод списка инструментов, и я помогу их определить.",
+        "usage": {
+          "prompt_tokens": 73,
+          "completion_tokens": 75
+        },
+        "coverage": 0.0,
+        "missing": [
+          "search_clients",
+          "get_client_orders",
+          "create_order"
+        ],
+        "status": "честно не знает"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Какие инструменты зарегистрированы в MCP-сервере CRM в проекте дня 17?",
+        "answer": "В базе нет ответа, какие именно инструменты зарегистрированы в MCP-сервере CRM; указано только, что их 3. [4]",
+        "usage": {
+          "prompt_tokens": 952,
+          "completion_tokens": 90
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day17-mcp-tool/README.md#structure-000",
+            "source": "day17-mcp-tool/README.md",
+            "section": "День 17. Первый инструмент MCP + День 17. Первый инструмент MCP > Архитектура",
+            "score": 0.651
+          },
+          {
+            "n": 2,
+            "chunk_id": "day17-mcp-tool/mcp_server.py#structure-000",
+            "source": "day17-mcp-tool/mcp_server.py",
+            "section": "шапка модуля: docstring и импорты + константа mcp + def log",
+            "score": 0.595
+          },
+          {
+            "n": 3,
+            "chunk_id": "day20-mcp-orchestration/README.md#structure-000",
+            "source": "day20-mcp-orchestration/README.md",
+            "section": "День 20. Orchestration MCP",
+            "score": 0.548
+          },
+          {
+            "n": 4,
+            "chunk_id": "day17-mcp-tool/README.md#structure-001",
+            "source": "day17-mcp-tool/README.md",
+            "section": "День 17. Первый инструмент MCP > Файлы",
+            "score": 0.526
+          }
+        ],
+        "cited": [
+          "day17-mcp-tool/README.md"
+        ],
+        "prompt_chars": 2936,
+        "coverage": 0.0,
+        "missing": [
+          "search_clients",
+          "get_client_orders",
+          "create_order"
+        ],
+        "status": "честно не знает",
+        "retrieved_ok": true,
+        "cited_ok": true
+      }
+    },
+    {
+      "id": 6,
+      "type": "project",
+      "q": "Как в пайплайне дня 19 проверяется, что данные не исказились при передаче между инструментами?",
+      "expected": "На каждом стыке сравниваются контрольные суммы sha256 того, что отдал один шаг и получил следующий; в конце файл перечитывается с диска и сверяется. Всего 6 проверок; при ошибке пайплайн останавливается и ничего не сохраняет.",
+      "sources": [
+        "day19-mcp-pipeline/pipeline.py",
+        "day19-mcp-pipeline/README.md"
+      ],
+      "plain": {
+        "mode": "plain",
+        "question": "Как в пайплайне дня 19 проверяется, что данные не исказились при передаче между инструментами?",
+        "answer": "Не знаю, о каком именно «пайплайне дня 19» речь. Пришлите ссылку, описание или фрагмент задания — тогда точно скажу, как там проверяется целостность данных.",
+        "usage": {
+          "prompt_tokens": 78,
+          "completion_tokens": 101
+        },
+        "coverage": 0.0,
+        "missing": [
+          "sha256",
+          "перечит"
+        ],
+        "status": "честно не знает"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Как в пайплайне дня 19 проверяется, что данные не исказились при передаче между инструментами?",
+        "answer": "Проверка выполняется на каждом стыке пайплайна с помощью SHA-256: сравниваются хэши данных, отправленных предыдущим шагом, и полученных следующим. [1][2]\n\nПроверяются следующие переходы:\n\n- `search → клиент`: SHA-256 текста, полученного клиентом, сравнивается с хэшем сервера. [2]\n- `клиент → summarize`: SHA-256 текста, полученного `summarize`, сравнивается с результатом `search`. [2]\n- `summary → отчёт`: проверяется, что все предложения выжимки попали в отчёт. [2]\n- `клиент → save_to_file`: сравниваются SHA-256 отправленных и записанных на диск данных. [2]\n- файл на диске перечитывается и сверяется с отчётом. [2]\n\nДополнительно в режиме `extractive` проверяется, что каждое предложение выжимки есть в найденных статьях. [2] При любой ошибке или непрохождении проверки пайплайн останавливается и ничего не сохраняет. [2]",
+        "usage": {
+          "prompt_tokens": 970,
+          "completion_tokens": 242
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day19-mcp-pipeline/README.md#structure-000",
+            "source": "day19-mcp-pipeline/README.md",
+            "section": "День 19. Композиция MCP-инструментов",
+            "score": 0.657
+          },
+          {
+            "n": 2,
+            "chunk_id": "day19-mcp-pipeline/README.md#structure-004",
+            "source": "day19-mcp-pipeline/README.md",
+            "section": "День 19. Композиция MCP-инструментов > Как проверяется передача данных",
+            "score": 0.591
+          },
+          {
+            "n": 3,
+            "chunk_id": "day19-mcp-pipeline/pipeline.py#structure-000",
+            "source": "day19-mcp-pipeline/pipeline.py",
+            "section": "шапка модуля: docstring и импорты + class PipelineError",
+            "score": 0.469
+          },
+          {
+            "n": 4,
+            "chunk_id": "day19-mcp-pipeline/mcp_server.py#structure-000",
+            "source": "day19-mcp-pipeline/mcp_server.py",
+            "section": "шапка модуля: docstring и импорты + константа mcp + def log",
+            "score": 0.452
+          }
+        ],
+        "cited": [
+          "day19-mcp-pipeline/README.md"
+        ],
+        "prompt_chars": 3123,
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно",
+        "retrieved_ok": true,
+        "cited_ok": true
+      }
+    },
+    {
+      "id": 7,
+      "type": "project",
+      "q": "Как оркестратор в проекте дня 20 различает одноимённые инструменты search на разных MCP-серверах?",
+      "expected": "Инструменты регистрируются в общем каталоге под именами «сервер__инструмент» — kb__search и files__search; вызов маршрутизируется на сервер по префиксу.",
+      "sources": [
+        "day20-mcp-orchestration/"
+      ],
+      "plain": {
+        "mode": "plain",
+        "question": "Как оркестратор в проекте дня 20 различает одноимённые инструменты search на разных MCP-серверах?",
+        "answer": "Обычно оркестратор различает их по составному идентификатору: **имя MCP-сервера + имя инструмента**, например:\n\n- `server_a.search`\n- `server_b.search`\n\nОн хранит реестр подключённых серверов и при вызове маршрутизирует запрос по этому идентификатору. Если в проекте «дня 20» используется другая схема (алиасы, UUID или префиксы), без кода точно сказать не могу.",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 171
+        },
+        "coverage": 0.33,
+        "missing": [
+          "kb__search",
+          "files__search"
+        ],
+        "status": "частично"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Как оркестратор в проекте дня 20 различает одноимённые инструменты search на разных MCP-серверах?",
+        "answer": "Оркестратор добавляет к имени инструмента префикс сервера через `__`: например, `kb__search` и `files__search`, поэтому одноимённые инструменты не конфликтуют. [2]\n\nПри вызове `kb__search` он направляет запрос именно на сервер `kb`, используя исходное имя инструмента `search`. [2]",
+        "usage": {
+          "prompt_tokens": 1068,
+          "completion_tokens": 124
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day20-mcp-orchestration/README.md#structure-000",
+            "source": "day20-mcp-orchestration/README.md",
+            "section": "День 20. Orchestration MCP",
+            "score": 0.668
+          },
+          {
+            "n": 2,
+            "chunk_id": "day20-mcp-orchestration/orchestrator.py#structure-000",
+            "source": "day20-mcp-orchestration/orchestrator.py",
+            "section": "шапка модуля: docstring и импорты + константа BASE_DIR + константа SEP + class ServerSpec + class Route + class TraceEntry",
+            "score": 0.588
+          },
+          {
+            "n": 3,
+            "chunk_id": "day20-mcp-orchestration/README.md#structure-006",
+            "source": "day20-mcp-orchestration/README.md",
+            "section": "День 20. Orchestration MCP > Проверка ТЗ",
+            "score": 0.547
+          },
+          {
+            "n": 4,
+            "chunk_id": "day17-mcp-tool/README.md#structure-000",
+            "source": "day17-mcp-tool/README.md",
+            "section": "День 17. Первый инструмент MCP + День 17. Первый инструмент MCP > Архитектура",
+            "score": 0.547
+          }
+        ],
+        "cited": [
+          "day20-mcp-orchestration/orchestrator.py"
+        ],
+        "prompt_chars": 3361,
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно",
+        "retrieved_ok": true,
+        "cited_ok": true
+      }
+    },
+    {
+      "id": 8,
+      "type": "project",
+      "q": "Какая стратегия chunking лучше нашла нужный раздел в проекте дня 21 на эмбеддингах AITunnel и с каким результатом?",
+      "expected": "Стратегия structure: нужный раздел в топ-3 для всех 15 вопросов (section@3 = 1.0) против 0.5 у fixed.",
+      "sources": [
+        "day21-doc-index/README.md"
+      ],
+      "plain": {
+        "mode": "plain",
+        "question": "Какая стратегия chunking лучше нашла нужный раздел в проекте дня 21 на эмбеддингах AITunnel и с каким результатом?",
+        "answer": "Не знаю — в доступном контексте нет результатов сравнения стратегий chunking для проекта «день 21» на эмбеддингах AITunnel.",
+        "usage": {
+          "prompt_tokens": 84,
+          "completion_tokens": 70
+        },
+        "coverage": 0.0,
+        "missing": [
+          "structure",
+          "1.0"
+        ],
+        "status": "честно не знает"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Какая стратегия chunking лучше нашла нужный раздел в проекте дня 21 на эмбеддингах AITunnel и с каким результатом?",
+        "answer": "Стратегия **structure** лучше нашла нужный раздел: **section@3 = 1.000** на эмбеддингах AITunnel. [4]",
+        "usage": {
+          "prompt_tokens": 1416,
+          "completion_tokens": 39
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day21-doc-index/README.md#structure-008",
+            "source": "day21-doc-index/README.md",
+            "section": "День 21. Индексация документов > Результаты сравнения > Выводы",
+            "score": 0.583
+          },
+          {
+            "n": 2,
+            "chunk_id": "day21-doc-index/README.md#structure-003",
+            "source": "day21-doc-index/README.md",
+            "section": "День 21. Индексация документов > Две стратегии chunking",
+            "score": 0.56
+          },
+          {
+            "n": 3,
+            "chunk_id": "day21-doc-index/compare.py#structure-000",
+            "source": "day21-doc-index/compare.py",
+            "section": "шапка модуля: docstring и импорты + константа STRATS",
+            "score": 0.556
+          },
+          {
+            "n": 4,
+            "chunk_id": "day21-doc-index/README.md#structure-007",
+            "source": "day21-doc-index/README.md",
+            "section": "День 21. Индексация документов > Результаты сравнения > Качество поиска на 15 контрольных вопросах",
+            "score": 0.54
+          }
+        ],
+        "cited": [
+          "day21-doc-index/README.md"
+        ],
+        "prompt_chars": 4258,
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно",
+        "retrieved_ok": true,
+        "cited_ok": true
+      }
+    },
+    {
+      "id": 9,
+      "type": "general",
+      "q": "Что такое Model Context Protocol (MCP)?",
+      "expected": "Открытый протокол, который стандартизирует подключение языковых моделей к внешним инструментам и данным: MCP-сервер публикует инструменты, клиент их вызывает.",
+      "sources": [],
+      "plain": {
+        "mode": "plain",
+        "question": "Что такое Model Context Protocol (MCP)?",
+        "answer": "**Model Context Protocol (MCP)** — это открытый протокол, который стандартизирует подключение ИИ‑приложений к внешним источникам данных и инструментам.\n\nС помощью MCP модель может, например:\n\n- читать файлы и данные из баз;\n- обращаться к API и сервисам;\n- выполнять действия через подключённые инструменты;\n- получать дополнительные контекст и шаблоны запросов.\n\nОбычно есть **MCP‑клиент** (ИИ‑приложение) и **MCP‑сервер**, предоставляющий ресурсы или инструменты по единому интерфейсу. MCP часто сравнивают с «USB‑C для ИИ»: один стандарт вместо множества отдельных интеграций.",
+        "usage": {
+          "prompt_tokens": 62,
+          "completion_tokens": 204
+        },
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Что такое Model Context Protocol (MCP)?",
+        "answer": "В базе нет отдельного формального определения Model Context Protocol (MCP).  \n\nВ описанном проекте MCP используется для запуска сервера, получения списка инструментов и выполнения вызовов через `session.call_tool`. [1]  \nКлиент устанавливает сессию MCP и инициализирует её через `ClientSession`. [3]  \nПри HTTP-взаимодействии используются заголовки `MCP-Protocol-Version` и `Mcp-Session-Id`. [2]",
+        "usage": {
+          "prompt_tokens": 1080,
+          "completion_tokens": 190
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day17-mcp-tool/agent.py#structure-000",
+            "source": "day17-mcp-tool/agent.py",
+            "section": "шапка модуля: docstring и импорты + константа MODEL + константа BASE_URL + константа MAX_TOOL_STEPS",
+            "score": 0.455
+          },
+          {
+            "n": 2,
+            "chunk_id": "day16-mcp-connect/list_tools_raw.py#structure-001",
+            "source": "day16-mcp-connect/list_tools_raw.py",
+            "section": "class McpHttpClient (часть 1/3)",
+            "score": 0.448
+          },
+          {
+            "n": 3,
+            "chunk_id": "day17-mcp-tool/mcp_client.py#structure-001",
+            "source": "day17-mcp-tool/mcp_client.py",
+            "section": "def connect",
+            "score": 0.444
+          },
+          {
+            "n": 4,
+            "chunk_id": "day19-mcp-pipeline/mcp_client.py#structure-001",
+            "source": "day19-mcp-pipeline/mcp_client.py",
+            "section": "def connect",
+            "score": 0.444
+          }
+        ],
+        "cited": [
+          "day16-mcp-connect/list_tools_raw.py",
+          "day17-mcp-tool/agent.py",
+          "day17-mcp-tool/mcp_client.py"
+        ],
+        "prompt_chars": 3827,
+        "coverage": 0.5,
+        "missing": [
+          "протокол"
+        ],
+        "status": "честно не знает",
+        "retrieved_ok": null,
+        "cited_ok": null
+      }
+    },
+    {
+      "id": 10,
+      "type": "general",
+      "q": "Что такое function calling у языковых моделей?",
+      "expected": "Модель получает описания функций с JSON Schema параметров и вместо текста может вернуть имя функции и аргументы; приложение выполняет функцию и возвращает результат модели.",
+      "sources": [],
+      "plain": {
+        "mode": "plain",
+        "question": "Что такое function calling у языковых моделей?",
+        "answer": "**Function calling** — это механизм, при котором языковая модель не выполняет функцию сама, а формирует структурированный запрос к заранее описанной функции или API.\n\nКак это работает:\n\n1. Разработчик описывает доступные функции: их названия, параметры и типы данных.\n2. Модель анализирует запрос пользователя.\n3. Если нужно действие извне, модель возвращает вызов функции с аргументами в структурированном виде, например JSON.\n4. Программа выполняет функцию.\n5. Результат передаётся модели, и она формирует ответ пользователю.\n\nПример:\n\nПользователь: «Какая погода в Москве?»\n\nМодель может запросить:\n\n```json\n{\n  \"name\": \"get_weather\",\n  \"arguments\": {\n    \"city\": \"Москва\"\n  }\n}\n```\n\nЗатем приложение вызывает погодный API и передаёт модели результат.\n\nВажно: function calling не даёт модели самостоятельного доступа к функциям или интернету — реальное выполнение контролирует приложение.",
+        "usage": {
+          "prompt_tokens": 62,
+          "completion_tokens": 215
+        },
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно"
+      },
+      "rag": {
+        "mode": "rag",
+        "question": "Что такое function calling у языковых моделей?",
+        "answer": "Function calling позволяет модели запросить вызов функции вместо текстового ответа. [1]\n\nМодель получает список функций с JSON Schema параметров и возвращает имя функции и аргументы. [1]\n\nПриложение выполняет функцию и передаёт результат обратно модели. [1]",
+        "usage": {
+          "prompt_tokens": 1077,
+          "completion_tokens": 61
+        },
+        "chunks": [
+          {
+            "n": 1,
+            "chunk_id": "day19-mcp-pipeline/tools_impl.py#structure-002",
+            "source": "day19-mcp-pipeline/tools_impl.py",
+            "section": "константа KNOWLEDGE_BASE + константа _WORD_RE + def _words + def _stem (часть 2/3)",
+            "score": 0.501
+          },
+          {
+            "n": 2,
+            "chunk_id": "day9-context-compression/chat.py#structure-004",
+            "source": "day9-context-compression/chat.py",
+            "section": "def ask_model",
+            "score": 0.352
+          },
+          {
+            "n": 3,
+            "chunk_id": "day20-mcp-orchestration/orchestrator.py#structure-005",
+            "source": "day20-mcp-orchestration/orchestrator.py",
+            "section": "class Orchestrator (часть 2/3)",
+            "score": 0.347
+          },
+          {
+            "n": 4,
+            "chunk_id": "day20-mcp-orchestration/agent.py#structure-004",
+            "source": "day20-mcp-orchestration/agent.py",
+            "section": "def _call",
+            "score": 0.334
+          }
+        ],
+        "cited": [
+          "day19-mcp-pipeline/tools_impl.py"
+        ],
+        "prompt_chars": 3943,
+        "coverage": 1.0,
+        "missing": [],
+        "status": "верно",
+        "retrieved_ok": null,
+        "cited_ok": null
+      }
+    }
+  ]
+}
